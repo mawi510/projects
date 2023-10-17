@@ -1,9 +1,9 @@
 # Predicting NFL Games
 
-Using a logistic regression model, I predict the outcome of a game based on the team's performance over the last 5 games.
+I scraped NFL Performance Data and Weather Data to predict whether or not NFL team will cover against the spread
 
-More specifically, I predict the outcomes of NFL games based on variables such as Offensive Passing Yards and Defensive Turnovers.
+I used both a gradient boosted regression, and a random forest classifier to model the team's performance
 
-I train the model using last season's performance, then feed the model the performance over the course of this season to predict the outcome for each game
+The training data is available in this folder under 'training_data_2023.csv'. 
 
-The data comes from Pro Football Focus
+Feel free to reach out with any suggestions to improve my model, or other inputs I should consider
