@@ -1,5 +1,4 @@
 name: GitHub Actions Demo
-run-name: ${{ github.actor }} is capturing the lastest nfl performance data :football:
 on: 
   workflow_dispatch:
   # schedule:
