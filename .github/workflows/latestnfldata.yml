@@ -21,4 +21,4 @@ jobs:
           pip install boto3
       - name: execute py script # run file
         run: |
-          python projects/PredictingNFLGames/test_update_nfl_data_s3.ipynb
+          python PredictingNFLGames/test_update_nfl_data_s3.ipynb
