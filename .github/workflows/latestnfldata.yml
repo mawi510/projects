@@ -1,0 +1,25 @@
+name: GitHub Actions Demo
+run-name: ${{ github.actor }} is capturing the lastest nfl performance data :football:
+on: 
+  workflow_dispatch:
+  # schedule:
+  # - cron: "0 4 * * *"
+jobs:
+  build:
+    runs-on: ubuntu-latest:
+
+    steps:
+      - name: checkout repo content
+        uses: actions/checkout@v2 # checkout the repository content to github runner.
+      - name: setup python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8 #install the python needed
+          - name: Install dependencies
+          run: |
+            python -m pip install --upgrade pip
+            pip install pandas
+            pip install boto3
+      - name: execute py script # run file
+        run: |
+          python test_update_nfl_data_s3.ipynb
