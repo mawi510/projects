@@ -2,6 +2,7 @@
 
 import pandas as pd
 import boto3
+import os
 
 
 #Let's pull our S3 Credentials, and specify the S3 bucket we wish to write to
