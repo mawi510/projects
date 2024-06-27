@@ -1,4 +1,4 @@
-name: Update NFL Data in S3
+name: Update Historical NFL Data in S3
 on: 
   workflow_dispatch:
   # schedule:
