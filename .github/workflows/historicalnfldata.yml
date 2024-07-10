@@ -20,6 +20,10 @@ jobs:
           pip install pandas
           pip install s3fs
           pip install boto3
+          pip install numpy
+          pip install requests
+          pip install http.client
+          pip install nfl_data_py
       - name: execute py script # run file
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
