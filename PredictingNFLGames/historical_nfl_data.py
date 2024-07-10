@@ -1064,6 +1064,6 @@ weekly_agg.to_csv(
 
 #We can also write this to our github folder
 
-weekly_agg.to_csv('PredictingNFLGames/nfl_training_data_2023.csv')
+weekly_agg.to_csv('PredictingNFLGames/nfl_training_data.csv')
 
 
