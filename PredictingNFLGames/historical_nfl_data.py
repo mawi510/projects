@@ -1049,7 +1049,7 @@ weekly_agg.columns = [i for i in weekly_agg.columns.str.replace('_x', '')]
 aws_access_key_id = os.getenv('AWS_ACCESS_KEY_ID')
 aws_secret_access_key = os.getenv('AWS_SECRET_ACCESS_KEY')
 
-aws_s3_bucket = "latestnfldata"
+aws_s3_bucket = "nfl.data"
 
 #Now we write to S3
 
