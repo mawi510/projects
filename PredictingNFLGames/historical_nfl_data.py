@@ -1054,7 +1054,7 @@ aws_s3_bucket = "nfl.data"
 #Now we write to S3
 
 weekly_agg.to_csv(
-    f"s3://{aws_s3_bucket}/nfl_training_data_2023.csv",
+    f"s3://{aws_s3_bucket}/nfl_historical_data.csv",
     index=False,
     storage_options={
         "key": aws_access_key_id,
