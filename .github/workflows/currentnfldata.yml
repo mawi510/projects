@@ -1,0 +1,41 @@
+name: Update Current NFL Data in S3
+on: 
+  workflow_dispatch:
+  # schedule:
+  # - cron: "0 4 * * *"
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout repo content
+        uses: actions/checkout@v2 # checkout the repository content to github runner.
+      - name: setup python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8 #install the python needed
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas
+          pip install s3fs
+          pip install boto3
+          pip install numpy
+          pip install requests
+          pip install http.client
+          pip install nfl_data_py
+      - name: execute py script # run file
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        run: |
+          python PredictingNFLGames/current_nfl_data.py
+      - name: Commit and push changes
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add -f PredictingNFLGames/nfl_current_data.csv
+          git commit -m "Update Current NFL Data" || echo "No changes to commit"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
