@@ -1,8 +1,8 @@
 name: Update Current NFL Data in S3
 on: 
   workflow_dispatch:
-  # schedule:
-  # - cron: "0 4 * * *"
+  schedule:
+  - cron: "0 4 * * 4"
 jobs:
   build:
     runs-on: ubuntu-latest
