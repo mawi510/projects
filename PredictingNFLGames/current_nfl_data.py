@@ -273,6 +273,7 @@ weekly_pfr = weekly_pfr.drop(['def_times_hurried',
                               'def_times_hitqb', 
                              'def_times_blitzed',
                               'receiving_drop',
+                                'receiving_drop_pct'], axis=1)
 
 
 #Changing raiders to LV b/c of their move
