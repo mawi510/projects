@@ -969,11 +969,30 @@ info_home = info_home.rename(columns={'home_team':'team',
 
 #Since roof and surface are categorical, lets create dummy variables
 info_away_surface = pd.get_dummies(info_away['surface'])
+
+#The historical dataset has both 'grass' AND 'grass ' as an options
+#I'll have to see if this is an error in historical data, or something in the ETL
+#Creating a 'grass ' column for now
+info_away_surface['grass '] = 0
+
 info_away_roof = pd.get_dummies(info_away['roof'])
+
+#For the 2024 season, there aren't any stadiums categorized as "open"
+#This could be due to a change in definition, but for now let's add "open" as a columns
+info_away_roof['open'] = 0
+
 info_away = pd.concat([info_away, info_away_surface, info_away_roof], axis=1)
 
 info_home_surface = pd.get_dummies(info_home['surface'])
+
+#Same as away surface
+info_home_surface['grass '] = 0
+
 info_home_roof = pd.get_dummies(info_home['roof'])
+
+#Same reasoninig as the away roofs
+info_home_roof['open'] = 0
+
 info_home = pd.concat([info_home, info_home_surface, info_home_roof], axis=1)
 
 #Lets combine the away and home info
@@ -1041,6 +1060,11 @@ weekly_agg = weekly_agg.drop([i for i in weekly_agg.columns if i.endswith(('_y')
 #Lets remove _x from the remaining columns
 weekly_agg.columns = [i for i in weekly_agg.columns.str.replace('_x', '')]
 
+
+#Issue is that if we shift this column, this will affect the order of the data
+#Which will throw off the prediction too much
+
+weekly_agg['players_injured_adj'] = weekly_agg['players_injured_adj'].fillna(0)
 
 #Now we can use pandas to write this file to S3
 
