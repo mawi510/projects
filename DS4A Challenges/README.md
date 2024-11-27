@@ -4,4 +4,4 @@ Data Science for All is a program under the Correlation One umbrella that helps 
 
 This folder holds the data challenges I completed as a result of being in this program.
 
-More Info aobut Correlation One's DS4A Program: https://www.correlation-one.com/data-skills-for-all
+More Info about Correlation One's DS4A Program: https://www.correlation-one.com/data-skills-for-all
